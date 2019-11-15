@@ -2,6 +2,7 @@ const router = require('express').Router();
 const bcrypt = require('bcryptjs');
 const Users = require('./user-model');
 const jwt = require('jsonwebtoken');
+require("dotenv").config();
 
 
 
@@ -56,7 +57,7 @@ function generateToken(user) {
 
   const result = jwt.sign(
     payload,
-    process.env.SECRET || "THIS IS THE SECRET",
+    process.env.SECRET_KEY,
     options
   );
 
